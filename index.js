@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function(){
   const gridsize = 9;
+  const resetButton =document.getElementById('resetButton');
   const button = document.getElementById('solveButton');
   const grid = document.getElementById('Grid');
 
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function(){
     grid.appendChild(gridrow);
   }
 
+
   // effect when selecting a cell
   const cells = document.querySelectorAll('td');
 
@@ -31,6 +33,17 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
   button.addEventListener('click', solve);
+  resetButton.addEventListener("click", function() {
+
+    for(let x = 0 ; x < gridsize ; x++){
+      for(let y = 0 ; y < gridsize ; y++) {
+        let cell = document.getElementById(`${x} ${y}`);
+        cell.value = "";
+        cell.classList = [];
+      }
+    }
+    
+  });
 
 });
 
